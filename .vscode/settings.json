@@ -1,6 +1,6 @@
 {
     "secrets.enabledFolders": [
-        "default",
-        "router"
+        "router",
+        "default"
     ]
 }
