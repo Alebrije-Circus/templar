@@ -1,6 +1,12 @@
 tasks:
-  - init: curl -L https://fly.io/install.sh | sh
-    command: /home/gitpod/.fly/bin/flyctl auth login
+  - init: |
+      docker-compose pull
+  - command: |
+      docker-compose up
+  - name: flyio
+    command: |
+      curl -L https://fly.io/install.sh | sh
+      /home/gitpod/.fly/bin/flyctl auth login
   - name: tailscale
     command: |
       cd /tmp
@@ -10,6 +16,19 @@ tasks:
       sudo tailscaled --state=/var/lib/tailscale/tailscaled.state --socket=/run/tailscale/tailscaled.sock --port 41641 2>/dev/null &
       sudo tailscale up --authkey=${TAILSCALE_AUTHKEY} --operator=gitpod --netfilter-mode=off --ssh
 
+ports:
+  - port: 5000
+    onOpen: ignore
+  - port: 5601
+    onOpen: open-browser
+  - port: 9200
+    onOpen: open-preview
+  - port: 9300
+    onOpen: ignore
+  - port: 9600
+    onOpen: ignore
+
 vscode:
   extensions:
+    - ms-azuretools.vscode-docker
     - tailscale.vscode-tailscale
