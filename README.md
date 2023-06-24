@@ -8,6 +8,13 @@ other container hosting platforms.
 This is a fork of [patte/fly-tailscale-exit](https://github.com/patte/fly-tailscale-exit/)
 with some minor fixes and additions, like Squid and Dante to acts as proxies.
 
+Quickstart
+-----
+
+Click the button below to start a new development environment:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Alebrije-Circus/templar)
+
 
 Usage
 -----
