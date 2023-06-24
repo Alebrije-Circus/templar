@@ -1,6 +1,7 @@
 {
     "secrets.enabledFolders": [
         "router",
-        "default"
+        "default",
+        "fly"
     ]
 }
